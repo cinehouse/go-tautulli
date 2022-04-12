@@ -4,3 +4,6 @@
 # User-specific stuff
 .idea
 *.iml
+
+coverage.out
+report.json

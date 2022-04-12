@@ -5,9 +5,10 @@
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/cinehouse/go-tautulli/tests/main?label=tests)](https://github.com/cinehouse/go-tautulli/actions?query=workflow%3Atests)
 [![Go Report Card](https://goreportcard.com/badge/github.com/cinehouse/go-tautulli)](https://goreportcard.com/report/github.com/cinehouse/go-tautulli)
 [![Codecov branch](https://img.shields.io/codecov/c/github/cinehouse/go-tautulli/main?token=p78MbVUq1e)](https://codecov.io/gh/cinehouse/go-tautulli)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cinehouse_go-tautulli&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cinehouse_go-tautulli)
 [![GitHub go.mod Go version (branch)](https://img.shields.io/github/go-mod/go-version/cinehouse/go-tautulli/main?label=Go)](https://golang.org/doc/install)
 [![Go Reference](https://pkg.go.dev/badge/github.com/cinehouse/go-tautulli.svg)](https://pkg.go.dev/github.com/cinehouse/go-tautulli)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/cinehouse/go-tautulli/blob/main/LICENSE)
+[![GitHub](https://img.shields.io/github/license/cinehouse/go-tautulli)](https://github.com/cinehouse/go-tautulli/blob/main/LICENSE)
 
 go-tautulli is a Go client library for accessing the [Tautulli API v2][].
 
