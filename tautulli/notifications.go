@@ -2,6 +2,7 @@ package tautulli
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -23,11 +24,16 @@ const (
 )
 
 // Notify sends a notification using the Tautulli API.
-func (s *NotificationsService) Notify(ctx context.Context, params *NotifyParameters) (*http.Response, error) {
-	req, err := s.client.NewCommand(commandNotify, params)
+func (s *NotificationsService) Notify(ctx context.Context, params *NotifyParameters) (*Response, error) {
+	encodedParams, err := encodeParameters(params)
 	if err != nil {
 		return nil, err
 	}
 
-	return s.client.Do(ctx, req)
+	req, err := s.client.NewRequest(http.MethodGet, fmt.Sprintf("cmd=%s&%s", commandNotify, encodedParams))
+	if err != nil {
+		return nil, err
+	}
+
+	return s.client.Do(ctx, req, nil)
 }

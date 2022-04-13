@@ -42,11 +42,13 @@ func setup() (client *Client, mux *http.ServeMux, serverURL string, teardown fun
 	// server is a test HTTP server used to provide mock API responses.
 	server := httptest.NewServer(apiHandler)
 
-	baseURL, _ := url.Parse(server.URL + baseURLPath + "/")
+	baseURL, _ := url.Parse(server.URL)
 
 	// client is the Tautulli client being tested and is
 	// configured to use test server.
-	client = NewClient(nil, baseURL, "test")
+	client = NewClient(nil, baseURL, "test", &ClientOptions{
+		Debug: true,
+	})
 
 	return client, mux, server.URL, server.Close
 }
@@ -94,20 +96,20 @@ func TestTautulli_ErrorResponse(t *testing.T) {
 }
 
 func TestTautulli_TestNewClient(t *testing.T) {
-	c := NewClient(nil, nil, "")
+	c := NewClient(nil, nil, "", nil)
 
 	if got, want := c.UserAgent, userAgent; got != want {
 		t.Errorf("NewClient UserAgent is %v, want %v", got, want)
 	}
 
-	c2 := NewClient(nil, nil, "")
+	c2 := NewClient(nil, nil, "", nil)
 	if c.client == c2.client {
 		t.Error("NewClient returned same http.Clients, but they should differ")
 	}
 }
 
 func TestTautulli_TestClient(t *testing.T) {
-	c := NewClient(nil, nil, "")
+	c := NewClient(nil, nil, "", nil)
 	c2 := c.Client()
 	if c.client == c2 {
 		t.Error("Client returned same http.Client, but should be different")

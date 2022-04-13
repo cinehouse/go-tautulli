@@ -20,7 +20,6 @@ func TestNotificationsService_Notify(t *testing.T) {
 			"subject":     "test",
 			"body":        "test",
 			"out_type":    "json",
-			"callback":    "pong",
 			"debug":       "1",
 		})
 		fmt.Fprint(writer, `[{"number":1}]`)
