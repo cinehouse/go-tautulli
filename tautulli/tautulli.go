@@ -260,6 +260,7 @@ GitHub API docs: https://docs.github.com/en/free-pro-team@latest/rest/reference/
 */
 type ErrorResponse struct {
 	Response *http.Response // HTTP response that caused this error
+	Message  string         `json:"message"` // error message
 }
 
 func (r *ErrorResponse) Error() string {
